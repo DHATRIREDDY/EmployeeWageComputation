@@ -24,8 +24,8 @@ while [ $totalEmpHrs -lt $MAX_HRS_IN_MONTH ] && [ $totalWorkingDays -lt $NUM_WOR
 do
 	((totalWorkingDays++))
 	workHours="$(getWorkingHours $(( RANDOM%3 )) )"
-
+	dailywages[((counter))]=$(( $workHours*20 ))
+        counter=$(( $counter+1 ))
 	totalworkHours=$(( $totalworkHours+$workHours ))
 done
 totalSalary=$(( $totalworkHours*$EMP_RATE_PER_HR ))
-
